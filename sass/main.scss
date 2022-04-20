@@ -1,0 +1,268 @@
+@import 'variables';
+@import 'menu';
+
+/* font */
+
+h2 {
+    display: inline-block;
+    padding-bottom: 5px;
+    position: relative;    
+  
+    &:before{
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 1px;
+        bottom: 0;
+        border-bottom: 1px solid $blue;
+    }
+}
+
+p {
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: weight(regular);
+    color: $medium-grey;
+}
+
+.bold {
+    font-weight: weight(bold);
+}
+
+.light {
+    font-weight: weight(light);
+}
+
+.thin {
+    font-weight: weight(thin);
+}
+
+/* buttons */
+.primary-button {
+    font-size: 14px;
+    background-color: $red;
+    border-radius: 5px;
+    padding: 17px 51px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: weight(medium);
+
+    &:hover {
+        transition: 0.5s;
+        background-color: transparent;
+        border: 2px solid $white;
+    }
+}
+
+.read-more {
+    font-weight: weight(medium);
+    font-size: 14px;
+    line-height: 16px;
+    color: $white;
+    background-color: transparent;
+    border: 0;
+
+    .arrow {
+        border: solid $blue;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg); 
+    }
+
+    &:hover {
+        font-size: 15px;
+        transition: 0.5s;
+        .arrow {
+            border: solid $red;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg); 
+        }
+    }
+    @include mobile {
+        padding-bottom: 20px;
+    }
+}
+
+
+/* general */
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto';
+    scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row { /* lahko bi napisala pr enmu in pol uporabla @extend */
+    @include flexBox (space-between);
+    column-gap: 50px;
+
+    @include mobile {
+        flex-direction: column;
+        }
+}
+
+.text {
+    @include textCenter;
+    padding: 100px 0;
+
+    &_f {
+        @include textCenter;
+        padding: 40px 0;
+    }
+
+    &_c {
+        @include textCenter;
+        padding: 5px 0;
+    }
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* home section */
+#home {
+    height:100vh;
+    background-image: url('/img/bg.jpeg');
+    background-size: cover;
+    @include flexBox(center);
+    flex-direction: column;
+    text-align: center;
+
+    img {
+        height:40px;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        color: $white;
+        padding-bottom: 30px;
+        border-bottom: 1px solid $white;
+    }
+}
+
+/* news section */
+#news {
+    background-color:$black;
+    } 
+
+/* events section */
+#events {
+    background-color:$dark-blue;
+        .column-left {
+            width: 70%;
+
+            @include mobile {
+                width: 100%;
+            }
+        }
+    }
+
+/* about section */
+#about {
+    background-color: $black;
+    min-height: 600px;
+
+    .column {
+        width: 50%;
+
+        @include mobile {
+            width: 100%;
+        }        
+    }
+    .shapes {
+        width: 40%;
+    
+        @include mobile {
+            width: 100%;
+        }
+      }
+}
+  
+  .upper-box {
+    position: absolute;
+    background-color:#0F2123;
+    height: 180px;
+    width: 180px;
+    margin-top: -50px;;
+    margin-left: -100px;
+
+    @include mobile {
+        visibility: hidden;
+    }
+  }
+  
+  .middle-box {
+    position: relative;
+    max-height: 400px;
+    z-index: 1;
+
+    @include mobile {
+        position: static;
+        margin: 0 auto;
+        max-height: 100vh;
+    }
+  }
+
+  .lower-box {
+    position: absolute;
+    background: #1D1524;
+    width: 100px;
+    height: 100px;
+    transform: rotate(-45deg);
+    margin-left: 390px;
+    margin-top: -50px;
+
+    @include mobile {
+        visibility: hidden;
+    }
+  }
+
+
+/* footer */
+footer {
+    background-color: $dark-blue;
+    div {
+        @include flexBox(center);
+        gap:40px;
+
+        @include mobile {
+            flex-direction: column;
+            gap:20px;
+        }
+
+        a {
+        text-transform: capitalize;
+        text-decoration: none;
+        color: $medium-grey;
+        }
+    }
+}
+
+#credit {
+    background-color: #1E2C2E;
+    text-align: center;
+    p {
+        color: $light-grey;
+        font-size: 12px;
+    }
+    a {
+        color:$light-grey;  
+    }
+}
+
+
